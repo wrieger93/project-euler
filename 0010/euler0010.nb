@@ -1,0 +1,67 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      1593,         58]
+NotebookOptionsPosition[      1244,         41]
+NotebookOutlinePosition[      1590,         56]
+CellTagsIndexPosition[      1547,         53]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"(*", "\[IndentingNewLine]", 
+  RowBox[{"i", " ", "hope", " ", "this", " ", "is", " ", 
+   RowBox[{"obvious", "."}]}], "\[IndentingNewLine]", "*)"}]], "Input",
+ CellChangeTimes->{{3.5649789601954837`*^9, 3.5649789701440525`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Sum", "[", 
+  RowBox[{
+   RowBox[{"Prime", "[", "n", "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"n", ",", "1", ",", 
+     RowBox[{"PrimePi", "[", "2000000", "]"}]}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.564978971218114*^9, 3.5649789946574545`*^9}}],
+
+Cell[BoxData["142913828922"], "Output",
+ CellChangeTimes->{{3.5649789881640835`*^9, 3.5649789951634836`*^9}}]
+}, Open  ]]
+},
+WindowSize->{707, 647},
+WindowMargins->{{247, Automatic}, {38, Automatic}},
+FrontEndVersion->"8.0 for Microsoft Windows (64-bit) (February 23, 2011)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 252, 4, 72, "Input"],
+Cell[CellGroupData[{
+Cell[834, 28, 282, 7, 31, "Input"],
+Cell[1119, 37, 109, 1, 30, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
