@@ -1,0 +1,73 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      1821,         63]
+NotebookOptionsPosition[      1470,         46]
+NotebookOutlinePosition[      1816,         61]
+CellTagsIndexPosition[      1773,         58]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"(*", "\[IndentingNewLine]", 
+  RowBox[{"i", " ", "hope", " ", "this", " ", "is", " ", "obvious"}], 
+  "\[IndentingNewLine]", "*)"}]], "Input",
+ CellChangeTimes->{{3.5650307129725733`*^9, 3.5650307192259307`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Length", "[", "\[IndentingNewLine]", 
+  RowBox[{"DeleteDuplicates", "[", "\[IndentingNewLine]", 
+   RowBox[{"Flatten", "[", 
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"a", "^", "b"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"a", ",", "2", ",", "100"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"b", ",", "2", ",", "100"}], "}"}]}], "]"}], "]"}], 
+   "\[IndentingNewLine]", "]"}], "\[IndentingNewLine]", "]"}]], "Input",
+ CellChangeTimes->{{3.5650306291457787`*^9, 3.565030670697155*^9}}],
+
+Cell[BoxData["9183"], "Output",
+ CellChangeTimes->{{3.5650306534331675`*^9, 3.5650306628807077`*^9}}]
+}, Open  ]]
+},
+WindowSize->{707, 647},
+WindowMargins->{{192, Automatic}, {38, Automatic}},
+FrontEndVersion->"8.0 for Microsoft Windows (64-bit) (February 23, 2011)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 236, 4, 72, "Input"],
+Cell[CellGroupData[{
+Cell[818, 28, 532, 12, 112, "Input"],
+Cell[1353, 42, 101, 1, 30, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
