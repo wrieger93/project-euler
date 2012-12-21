@@ -1,0 +1,80 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      1972,         71]
+NotebookOptionsPosition[      1624,         54]
+NotebookOutlinePosition[      1969,         69]
+CellTagsIndexPosition[      1926,         66]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"(*", "\[IndentingNewLine]", 
+  RowBox[{"i", " ", "hope", " ", "this", " ", "is", " ", "obvious", " ", 
+   RowBox[{"(", 
+    RowBox[{"unless", " ", "you", " ", 
+     RowBox[{"don", "'"}], "t", " ", "know", " ", "mathematica"}], ")"}]}], 
+  "\[IndentingNewLine]", "*)"}]], "Input",
+ CellChangeTimes->{{3.5650395649878798`*^9, 3.5650395806967783`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"lst", "=", 
+   RowBox[{"Flatten", "[", 
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"IntegerDigits", "[", "n", "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"n", ",", "1", ",", "1000000"}], "}"}]}], "]"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Product", "[", 
+  RowBox[{
+   RowBox[{"lst", "[", 
+    RowBox[{"[", 
+     RowBox[{"10", "^", "k"}], "]"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"k", ",", "0", ",", "6"}], "}"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.565039479431986*^9, 3.5650395586805186`*^9}}],
+
+Cell[BoxData["210"], "Output",
+ CellChangeTimes->{3.565039562182719*^9}]
+}, Open  ]]
+},
+WindowSize->{707, 647},
+WindowMargins->{{120, Automatic}, {Automatic, 0}},
+FrontEndVersion->"8.0 for Microsoft Windows (64-bit) (February 23, 2011)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 373, 7, 72, "Input"],
+Cell[CellGroupData[{
+Cell[955, 31, 578, 17, 52, "Input"],
+Cell[1536, 50, 72, 1, 30, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

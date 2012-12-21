@@ -1,0 +1,112 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      3334,        103]
+NotebookOptionsPosition[      2982,         86]
+NotebookOutlinePosition[      3329,        101]
+CellTagsIndexPosition[      3286,         98]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"(*", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+   "i", " ", "dread", " ", "the", " ", "day", " ", "i", " ", "have", " ", 
+    "to", " ", "write", " ", "my", " ", "own", " ", "prime"}], "-", 
+   RowBox[{"finding", " ", "function", " ", "in", " ", 
+    RowBox[{"c", "++"}]}]}], "\[IndentingNewLine]", "*)"}]], "Input",
+ CellChangeTimes->{{3.5650374537531233`*^9, 3.565037473012225*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"iscircular", "[", "p_", "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"rots", ",", "i"}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"rots", "=", 
+       RowBox[{"Length", "[", 
+        RowBox[{"IntegerDigits", "[", "p", "]"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"For", "[", 
+       RowBox[{
+        RowBox[{"i", "=", "0"}], ",", 
+        RowBox[{"i", "<", "rots"}], ",", 
+        RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{"Not", "[", 
+            RowBox[{"PrimeQ", "[", 
+             RowBox[{"FromDigits", "[", 
+              RowBox[{"RotateRight", "[", 
+               RowBox[{
+                RowBox[{"IntegerDigits", "[", "p", "]"}], ",", "i"}], "]"}], 
+              "]"}], "]"}], "]"}], " ", 
+           RowBox[{"(*", " ", 
+            RowBox[{"looks", " ", "scary", " ", "but", " ", 
+             RowBox[{"it", "'"}], "s", " ", "really", " ", "not"}], " ", 
+            "*)"}], ",", "\[IndentingNewLine]", 
+           RowBox[{"Return", "[", "False", "]"}]}], "]"}], ";"}]}], 
+       "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", "True"}]}], 
+    "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Length", "[", 
+  RowBox[{"Select", "[", 
+   RowBox[{
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"Prime", "[", "n", "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"n", ",", "1", ",", 
+        RowBox[{"PrimePi", "[", "1000000", "]"}]}], "}"}]}], "]"}], ",", 
+    RowBox[{
+     RowBox[{"iscircular", "[", "#", "]"}], "&"}]}], "]"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.5650372044668655`*^9, 3.565037205051899*^9}, {
+  3.5650372454042068`*^9, 3.56503741400385*^9}, {3.5650374991907225`*^9, 
+  3.5650375184548244`*^9}}],
+
+Cell[BoxData["55"], "Output",
+ CellChangeTimes->{3.5650375232440987`*^9}]
+}, Open  ]]
+},
+WindowSize->{707, 647},
+WindowMargins->{{252, Automatic}, {-14, Automatic}},
+FrontEndVersion->"8.0 for Microsoft Windows (64-bit) (February 23, 2011)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 413, 8, 72, "Input"],
+Cell[CellGroupData[{
+Cell[995, 32, 1895, 48, 212, "Input"],
+Cell[2893, 82, 73, 1, 30, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

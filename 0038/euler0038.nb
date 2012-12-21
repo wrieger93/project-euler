@@ -1,0 +1,145 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      4746,        136]
+NotebookOptionsPosition[      4392,        119]
+NotebookOutlinePosition[      4737,        134]
+CellTagsIndexPosition[      4694,        131]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"(*", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+    "n", " ", "can", " ", "go", " ", "from", " ", "2", " ", "to", " ", "5.", 
+     " ", "n"}], "=", 
+    RowBox[{"2", " ", "means", " ", "4", " ", "digits"}]}], ",", " ", 
+   RowBox[{"n", "=", 
+    RowBox[{"3", " ", "means", " ", "3", " ", "digits"}]}], ",", " ", 
+   RowBox[{"n", "=", 
+    RowBox[{"4", " ", "means", " ", "2", " ", "digits"}]}], ",", " ", 
+   RowBox[{
+    RowBox[{"and", " ", "n"}], "=", 
+    RowBox[{"5", " ", "means", " ", "1", " ", 
+     RowBox[{"digit", ".", " ", "so"}], " ", "n", " ", "means", " ", 
+     RowBox[{"(", 
+      RowBox[{"6", "-", "n"}], ")"}], " ", 
+     RowBox[{"digits", ".", " ", "we"}], " ", "try", " ", "all", " ", 
+     RowBox[{"possiblities", "."}]}]}]}], "\[IndentingNewLine]", 
+  "*)"}]], "Input",
+ CellChangeTimes->{{3.5650381637417326`*^9, 3.5650382608782883`*^9}, {
+  3.5650386513066196`*^9, 3.5650386551468396`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"maxpan", "=", "0"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"For", "[", 
+   RowBox[{
+    RowBox[{"n", "=", "2"}], ",", 
+    RowBox[{"n", "\[LessEqual]", "5"}], ",", 
+    RowBox[{"n", "++"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"For", "[", 
+      RowBox[{
+       RowBox[{"k", "=", 
+        RowBox[{"10", "^", 
+         RowBox[{"(", 
+          RowBox[{"5", "-", "n"}], ")"}]}]}], ",", 
+       RowBox[{"k", "<", 
+        RowBox[{"10", "^", 
+         RowBox[{"(", 
+          RowBox[{"6", "-", "n"}], ")"}]}]}], ",", 
+       RowBox[{"k", "++"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"Sort", "[", 
+            RowBox[{"Flatten", "[", 
+             RowBox[{"IntegerDigits", "/@", 
+              RowBox[{"Union", "[", 
+               RowBox[{"k", "*", 
+                RowBox[{"Range", "[", "n", "]"}]}], "]"}]}], "]"}], "]"}], 
+           "\[Equal]", 
+           RowBox[{"Range", "[", "9", "]"}]}], " ", 
+          RowBox[{"(*", " ", 
+           RowBox[{
+            RowBox[{"k", "*", 
+             RowBox[{"Range", "[", "n", "]"}], " ", "are", " ", "the", " ", 
+             "three", " ", "numbers"}], ",", " ", 
+            RowBox[{"we", " ", "check", " ", "if", " ", 
+             RowBox[{"that", "'"}], "s", " ", "the", " ", "same", " ", "as", 
+             " ", 
+             RowBox[{"Range", "[", "9", "]"}]}]}], " ", "*)"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"num", "=", 
+            RowBox[{"FromDigits", "[", 
+             RowBox[{"Flatten", "[", 
+              RowBox[{"IntegerDigits", "/@", 
+               RowBox[{"Union", "[", 
+                RowBox[{"k", "*", 
+                 RowBox[{"Range", "[", "n", "]"}]}], "]"}]}], "]"}], "]"}]}], 
+           ";", " ", 
+           RowBox[{"(*", " ", 
+            RowBox[{
+            "this", " ", "is", " ", "the", " ", "actual", " ", "pandigital", 
+             " ", "number"}], " ", "*)"}], "\[IndentingNewLine]", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{"num", ">", "maxpan"}], ",", "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{"maxpan", " ", "=", " ", "num"}], ";"}]}], 
+            "\[IndentingNewLine]", "]"}], ";"}]}], "\[IndentingNewLine]", 
+         "]"}], ";"}]}], "\[IndentingNewLine]", "]"}], ";"}]}], 
+   "\[IndentingNewLine]", "]"}], 
+  ";"}], "\[IndentingNewLine]", "maxpan"}], "Input",
+ CellChangeTimes->{{3.5650383046727934`*^9, 3.5650384167562046`*^9}, {
+  3.5650384640379086`*^9, 3.5650385238483295`*^9}, {3.5650385666337767`*^9, 
+  3.565038644264217*^9}, {3.5650386799822598`*^9, 3.5650387179844337`*^9}}],
+
+Cell[BoxData["932718654"], "Output",
+ CellChangeTimes->{3.565038645320277*^9, 3.5650387222446775`*^9}]
+}, Open  ]]
+},
+WindowSize->{707, 647},
+WindowMargins->{{72, Automatic}, {38, Automatic}},
+FrontEndVersion->"8.0 for Microsoft Windows (64-bit) (February 23, 2011)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 955, 22, 92, "Input"],
+Cell[CellGroupData[{
+Cell[1537, 46, 2734, 67, 312, "Input"],
+Cell[4274, 115, 102, 1, 30, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
