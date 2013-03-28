@@ -1,0 +1,201 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      6977,        191]
+NotebookOptionsPosition[      6619,        174]
+NotebookOutlinePosition[      6965,        189]
+CellTagsIndexPosition[      6922,        186]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"(*", " ", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"admissable", "[", 
+      RowBox[{"n", ",", "max"}], "]"}], " ", "gives", " ", "all", " ", 
+     "numbers", " ", "with", " ", "n", " ", "consecutive", " ", "prime", " ", 
+     "factors", " ", "less", " ", "than", " ", 
+     RowBox[{"n", ".", " ", "let"}], " ", "p", " ", "be", " ", "the", " ", 
+     "n"}], "+", 
+    RowBox[{"1", "th", " ", 
+     RowBox[{"prime", ".", " ", 
+      RowBox[{"admissable", "[", 
+       RowBox[{
+        RowBox[{"n", "+", "1"}], ",", "max"}], "]"}]}], " ", "is", " ", 
+     "just", " ", "the", " ", "union", " ", "of", " ", "p", "*", 
+     RowBox[{"admissable", "[", 
+      RowBox[{"n", ",", 
+       RowBox[{"max", "/", "p"}]}], "]"}]}]}], ",", " ", 
+   RowBox[{
+    RowBox[{"p", "^", "2"}], "*", 
+    RowBox[{"admissable", "[", 
+     RowBox[{"n", ",", 
+      RowBox[{"max", "/", 
+       RowBox[{"p", "^", "2"}]}]}], "]"}]}], ",", " ", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"etc", ".", " ", 
+      RowBox[{"can", "'"}]}], "t", " ", "have", " ", "more", " ", "than", " ",
+      "9", " ", "primes", " ", "because", " ", "otherwise", " ", "the", " ", 
+     "product", " ", "is", " ", "greater", " ", "than", " ", 
+     RowBox[{"MAX", ".", " ", "\[IndentingNewLine]", 
+      RowBox[{"pseudo", "[", "n", "]"}]}], " ", "find", " ", "the", " ", 
+     "pseudo"}], "-", 
+    RowBox[{"fortunate", " ", "number", " ", "of", " ", 
+     RowBox[{"n", ".", " ", "the"}], " ", "program", " ", "just", " ", 
+     "finds", " ", 
+     RowBox[{"pseudo", "[", "n", "]"}], " ", "for", " ", "every", " ", 
+     "admissable", " ", "number"}]}], ",", " ", 
+   RowBox[{"deletes", " ", "duplicates"}], ",", " ", 
+   RowBox[{"and", " ", "totals", " ", "the", " ", "list"}]}], " ", 
+  "*)"}]], "Input",
+ CellChangeTimes->{{3.5735002634400845`*^9, 3.5735004776943393`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"MAX", "=", 
+   RowBox[{"10", "^", "9"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"maxnumprimes", "=", "9"}], ";", " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"Times", "@@", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"Prime", "[", "n", "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"n", ",", "1", ",", "10"}], "}"}]}], "]"}]}], " ", ">", " ", 
+    "MAX"}], " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"admissable", "[", 
+    RowBox[{"n_", ",", "max_"}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"p", ",", "lst", ",", "exp"}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"n", "\[Equal]", "1"}], ",", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"Return", "[", 
+          RowBox[{"2", "^", 
+           RowBox[{"Range", "[", 
+            RowBox[{"1", ",", 
+             RowBox[{"Floor", "[", 
+              RowBox[{"Log", "[", 
+               RowBox[{"2", ",", "max"}], "]"}], "]"}]}], "]"}]}], "]"}], 
+         ";"}]}], "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"p", "=", 
+       RowBox[{"Prime", "[", "n", "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"lst", "=", 
+       RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"For", "[", 
+       RowBox[{
+        RowBox[{"exp", "=", "1"}], ",", 
+        RowBox[{"exp", "<", 
+         RowBox[{"Log", "[", 
+          RowBox[{"p", ",", "max"}], "]"}]}], ",", 
+        RowBox[{"exp", "++"}], ",", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"lst", "=", 
+          RowBox[{"Join", "[", 
+           RowBox[{"lst", ",", 
+            RowBox[{
+             RowBox[{"p", "^", "exp"}], "*", 
+             RowBox[{"admissable", "[", 
+              RowBox[{
+               RowBox[{"n", "-", "1"}], ",", 
+               RowBox[{"max", "/", 
+                RowBox[{"p", "^", "exp"}]}]}], "]"}]}]}], "]"}]}], ";"}]}], 
+       "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Return", "[", 
+       RowBox[{"Select", "[", 
+        RowBox[{
+         RowBox[{"DeleteDuplicates", "[", 
+          RowBox[{"Sort", "[", "lst", "]"}], "]"}], ",", 
+         RowBox[{
+          RowBox[{"#", "<", "MAX"}], "&"}]}], "]"}], "]"}], ";"}]}], 
+    "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"pseudo", "[", "n_", "]"}], ":=", 
+   RowBox[{
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"NextPrime", "[", "n", "]"}], "-", "n"}], ">", "1"}], ",", 
+      RowBox[{"NextPrime", "[", "n", "]"}], ",", 
+      RowBox[{"NextPrime", "[", 
+       RowBox[{"NextPrime", "[", "n", "]"}], "]"}]}], "]"}], "-", "n"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Total", "[", 
+  RowBox[{"DeleteDuplicates", "[", 
+   RowBox[{"Sort", "[", "\[IndentingNewLine]", 
+    RowBox[{"Flatten", "[", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"pseudo", "/@", 
+        RowBox[{"admissable", "[", 
+         RowBox[{"n", ",", "MAX"}], "]"}]}], ",", 
+       RowBox[{"{", 
+        RowBox[{"n", ",", "1", ",", "maxnumprimes"}], "}"}]}], "]"}], "]"}], 
+    "\[IndentingNewLine]", "]"}], "]"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.573498226860599*^9, 3.5734982291257286`*^9}, {
+   3.5734987203738265`*^9, 3.5734987523106527`*^9}, {3.5734988037205935`*^9, 
+   3.5734989101096783`*^9}, {3.57349894614174*^9, 3.573498954798235*^9}, {
+   3.573499022624114*^9, 3.5734990666426315`*^9}, {3.573499102611689*^9, 
+   3.57349918112718*^9}, {3.5734992334331713`*^9, 3.573499387148964*^9}, {
+   3.573499445199284*^9, 3.5734994581440244`*^9}, {3.5734994955371633`*^9, 
+   3.5734994956011667`*^9}, {3.5734995600188513`*^9, 3.5734996163890753`*^9}, 
+   3.573499688839219*^9, {3.57349978186654*^9, 3.573499782106554*^9}, {
+   3.5734999536633663`*^9, 3.5735000283046355`*^9}, {3.573500075603341*^9, 
+   3.5735000962905245`*^9}, {3.5735001373638735`*^9, 3.5735002296581526`*^9}}],
+
+Cell[BoxData["2209"], "Output",
+ CellChangeTimes->{{3.5735001940801177`*^9, 3.5735002394207106`*^9}}]
+}, Open  ]]
+},
+WindowSize->{819, 647},
+WindowMargins->{{200, Automatic}, {Automatic, 44}},
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (November 20, 2012)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 1857, 43, 172, "Input"],
+Cell[CellGroupData[{
+Cell[2439, 67, 4060, 101, 352, "Input"],
+Cell[6502, 170, 101, 1, 31, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
