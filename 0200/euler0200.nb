@@ -1,0 +1,212 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      7159,        203]
+NotebookOptionsPosition[      6850,        187]
+NotebookOutlinePosition[      7187,        202]
+CellTagsIndexPosition[      7144,        199]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{
+    "returns", " ", "the", " ", "sqube", " ", "corresponding", " ", "to", " ",
+      "p", " ", "and", " ", "q", " ", "being", " ", "the", " ", 
+     RowBox[{"a", "^", "th"}], " ", "and", " ", 
+     RowBox[{"b", "^", "th"}], " ", "primes"}], ",", " ", "respectively"}], 
+   " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"primesqube", "[", 
+      RowBox[{"{", 
+       RowBox[{"a_", ",", "b_"}], "}"}], "]"}], ":=", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Prime", "[", "a", "]"}], "^", "2"}], 
+      RowBox[{
+       RowBox[{"Prime", "[", "b", "]"}], "^", "3"}]}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{
+     "returns", " ", "an", " ", "ascending", " ", "list", " ", "of", " ", 
+      "all", " ", "squbes"}], " ", "<", " ", "n"}], " ", "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"squbesupto", "[", "n_", "]"}], ":=", 
+     RowBox[{"Sort", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"primesqube", "/@", 
+         RowBox[{"Select", "[", 
+          RowBox[{"#", ",", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"#", "[", 
+              RowBox[{"[", "1", "]"}], "]"}], "\[NotEqual]", 
+             RowBox[{"#", "[", 
+              RowBox[{"[", "2", "]"}], "]"}]}], "&"}]}], "]"}]}], "&"}], "@", 
+       
+       RowBox[{"Flatten", "[", 
+        RowBox[{
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"a", ",", "b"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"b", ",", "1", ",", 
+             RowBox[{"PrimePi", "[", 
+              RowBox[{"n", "^", 
+               RowBox[{"(", 
+                RowBox[{"1", "/", "3"}], ")"}]}], "]"}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"a", ",", "1", ",", 
+             RowBox[{"PrimePi", "[", 
+              RowBox[{"Sqrt", "[", 
+               RowBox[{"n", "/", 
+                RowBox[{
+                 RowBox[{"Prime", "[", "b", "]"}], "^", "3"}]}], "]"}], 
+              "]"}]}], "}"}]}], "]"}], ",", "1"}], "]"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "checks", " ", "if", " ", "n", " ", "contains", " ", "200", " ", "as", 
+     " ", "a", " ", "substring"}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"contains200", "[", "n_", "]"}], ":=", 
+     RowBox[{
+      RowBox[{"Length", "[", 
+       RowBox[{"StringPosition", "[", 
+        RowBox[{
+         RowBox[{"ToString", "[", "n", "]"}], ",", "\"\<200\>\""}], "]"}], 
+       "]"}], ">", "0"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "returns", " ", "all", " ", "numbers", " ", "obtained", " ", "by", " ", 
+     "replacing", " ", "the", " ", 
+     RowBox[{"pos", "^", "th"}], " ", "digit", " ", "in", " ", "n"}], " ", 
+    "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"changes", "[", 
+     RowBox[{"n_", ",", "pos_"}], "]"}], ":=", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Select", "[", 
+       RowBox[{"#", ",", 
+        RowBox[{
+         RowBox[{"#", "\[NotEqual]", "n"}], "&"}]}], "]"}], "&"}], "@", 
+     RowBox[{"(", 
+      RowBox[{"FromDigits", "/@", 
+       RowBox[{"Table", "[", 
+        RowBox[{
+         RowBox[{"ReplacePart", "[", 
+          RowBox[{
+           RowBox[{"IntegerDigits", "[", "n", "]"}], ",", 
+           RowBox[{"pos", "\[Rule]", "i"}]}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"i", ",", "0", ",", "9"}], "}"}]}], "]"}]}], ")"}]}]}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "checks", " ", "if", " ", "any", " ", "change", " ", "that", " ", "can", 
+     " ", "be", " ", "made", " ", "to", " ", "n", " ", "results", " ", "in", 
+     " ", "a", " ", "prime"}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"primeproof", "[", "n_", "]"}], ":=", 
+     RowBox[{"Not", "[", 
+      RowBox[{"Or", "@@", 
+       RowBox[{"PrimeQ", "/@", 
+        RowBox[{"Flatten", "[", 
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{"changes", "[", 
+            RowBox[{"n", ",", "pos"}], "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"pos", ",", "1", ",", 
+             RowBox[{"Length", "[", 
+              RowBox[{"IntegerDigits", "[", "n", "]"}], "]"}]}], "}"}]}], 
+          "]"}], "]"}]}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "generate", " ", "all", " ", "squbes", " ", "up", " ", "to", " ", 
+     "1000000000000", " ", "and", " ", "choose", " ", "the", " ", "200", "th",
+      " ", "that", " ", "satisfies", " ", "both", " ", "conditions"}], " ", 
+    "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"Timing", "[", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Select", "[", 
+         RowBox[{"#", ",", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"contains200", "[", "#", "]"}], "&&", 
+            RowBox[{"primeproof", "[", "#", "]"}]}], "&"}]}], "]"}], "&"}], 
+       "@", 
+       RowBox[{"squbesupto", "[", "1000000000000", "]"}]}], ")"}], "[", 
+     RowBox[{"[", "200", "]"}], "]"}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.603066399747861*^9, 3.603066418543976*^9}, {
+  3.603067951359844*^9, 3.60306796956039*^9}, {3.603068727250903*^9, 
+  3.60306874269928*^9}, {3.6030689333904047`*^9, 3.603068934617159*^9}, {
+  3.603069040970355*^9, 3.603069049855665*^9}, {3.6030690916008787`*^9, 
+  3.603069098051903*^9}, {3.603069194029209*^9, 3.603069234124892*^9}, {
+  3.603069824026569*^9, 3.6030698257637157`*^9}, {3.603070316343059*^9, 
+  3.603070321082138*^9}, {3.603070351324545*^9, 3.6030703528322487`*^9}, {
+  3.6030704731412783`*^9, 3.6030704732644863`*^9}, {3.6030708662756166`*^9, 
+  3.603070915941811*^9}, {3.6030712773733*^9, 3.603071302264344*^9}, {
+  3.603071637762144*^9, 3.603071640616872*^9}, {3.6030718397018747`*^9, 
+  3.6030719603951*^9}, {3.6030721216218853`*^9, 3.603072216047974*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "1.63199999999999989519494647538522258401`6.233320067697466", ",", 
+   "229161792008"}], "}"}]], "Output",
+ CellChangeTimes->{3.6030722047314*^9, 3.6030722710635567`*^9}]
+}, Open  ]]
+},
+WindowSize->{1148, 730},
+WindowMargins->{{Automatic, 173}, {Automatic, 5}},
+FrontEndVersion->"9.0 for Linux x86 (64-bit) (February 7, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 6040, 155, 319, "Input"],
+Cell[6622, 179, 212, 5, 65, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[      2219,         72]
-NotebookOptionsPosition[      1870,         55]
-NotebookOutlinePosition[      2214,         70]
-CellTagsIndexPosition[      2171,         67]
+NotebookDataLength[      2402,         77]
+NotebookOptionsPosition[      2025,         59]
+NotebookOutlinePosition[      2361,         74]
+CellTagsIndexPosition[      2318,         71]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -27,6 +27,9 @@ Cell[BoxData[
    RowBox[{"documentation", "."}]}], "\[IndentingNewLine]", "*)"}]], "Input",
  CellChangeTimes->{{3.5650232782833333`*^9, 3.5650232848097067`*^9}, {
   3.565023844011691*^9, 3.5650238630517797`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<Calendar`\>\"", "]"}]], "Input"],
 
 Cell[CellGroupData[{
 
@@ -46,16 +49,17 @@ Cell[BoxData[
          RowBox[{"month", ",", "1", ",", "12"}], "}"}]}], "]"}], ",", "1"}], 
      "]"}]}], ",", "Sunday"}], "]"}]], "Input",
  CellChangeTimes->{{3.5650237271950097`*^9, 3.5650237875304604`*^9}, {
-  3.565023825916656*^9, 3.565023834140126*^9}}],
+  3.565023825916656*^9, 3.565023834140126*^9}, {3.602897951372385*^9, 
+  3.6028979528617067`*^9}, {3.602897992211544*^9, 3.6028980227909927`*^9}}],
 
 Cell[BoxData["171"], "Output",
- CellChangeTimes->{{3.565023751484399*^9, 3.565023788364508*^9}, {
-  3.565023831770991*^9, 3.5650238418515673`*^9}}]
+ CellChangeTimes->{{3.6028980031252737`*^9, 3.6028980245031757`*^9}, 
+   3.602898067575375*^9}]
 }, Open  ]]
 },
 WindowSize->{707, 647},
-WindowMargins->{{96, Automatic}, {8, Automatic}},
-FrontEndVersion->"8.0 for Microsoft Windows (64-bit) (February 23, 2011)",
+WindowMargins->{{76, Automatic}, {-7, Automatic}},
+FrontEndVersion->"9.0 for Linux x86 (64-bit) (February 7, 2013)",
 StyleDefinitions->"Default.nb"
 ]
 (* End of Notebook Content *)
@@ -69,10 +73,11 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[557, 20, 491, 8, 92, "Input"],
+Cell[557, 20, 491, 8, 99, "Input"],
+Cell[1051, 30, 74, 1, 32, "Input"],
 Cell[CellGroupData[{
-Cell[1073, 32, 631, 16, 72, "Input"],
-Cell[1707, 50, 147, 2, 30, "Output"]
+Cell[1150, 35, 730, 17, 99, "Input"],
+Cell[1883, 54, 126, 2, 32, "Output"]
 }, Open  ]]
 }
 ]
