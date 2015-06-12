@@ -1,31 +1,27 @@
-"""
-i should probably be doing this in c++ but whatevs
-"""
+# This should be self-explanatory.
 
-lengths = {1: 1}
+# Output: 837799
+
+import functools
+
 MAX = 1000000
 
 def collatz(n):
     return n//2 if n%2 == 0 else 3*n+1
 
-def makechain(n):
-    chain = [n]
-    while chain[-1] != 1 and chain[-1] not in lengths.keys():
-        chain.append(collatz(chain[-1]))
-        
-    for i in range(1,len(chain)):
-        lengths[chain[-(i+1)]] = lengths[chain[-1]] + i
+# enable memoization
+@functools.lru_cache(maxsize=None)
+def collatz_length(n):
+    if n == 1:
+        return 1
+    return 1 + collatz_length(collatz(n))
 
 if __name__=="__main__":
-    maxlen = 0
-    for i in range(2,MAX):
-        makechain(i)
-
-    maxlength = 0
-    maxnum = 0
-    for k,v in lengths.items():
-        if v > maxlength and k < MAX:
-            maxlength = v
-            maxnum = k
-
-    print(maxnum) # answer is 837799
+    maxlen = 1
+    maxstart = 1
+    for i in range(2, MAX+1):
+        l = collatz_length(i)
+        if l > maxlen:
+            maxlen = l
+            maxstart = i
+    print(maxstart)

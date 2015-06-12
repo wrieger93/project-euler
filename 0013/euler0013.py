@@ -1,11 +1,14 @@
-"""
-i hope this is obvious.
-it's nice that python has no integer overflow
-"""
+# This should be self-explanatory
+
+# Output: 5537376230
+
+import os
+import sys
 
 if __name__=="__main__":
-    f = open('nums.txt','r')
-    tot = 0
-    for line in f:
-        tot += int(line)
-    print(str(tot)[:10]) # answer is 5537376230
+    path = os.path.join(os.path.dirname(sys.argv[0]), "nums.txt")
+    with open(path) as f:
+        tot = 0
+        for line in f:
+            tot += int(line)
+    print(str(tot)[:10])

@@ -7,7 +7,7 @@
 
 Print[
     Max @ Select[
-        Flatten[Table[a*b, {a, 100, 999}, {b, 100, 999}]],
+        Flatten[Table[a * b, {a, 100, 999}, {b, a, 999}]],
         IntegerDigits[#] == Reverse[IntegerDigits[#]] &
     ]
 ];
