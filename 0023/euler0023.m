@@ -1,16 +1,14 @@
 (*
-    28123 was given in the problem. We subtract the sum of all numbers that
-    can be written as the sum of two abundant numbers from the sum of all
-    numbers less than the limit.
+    Should be self-explanatory. 28123 was given in the problem.
 
-    Output: 4208058
+    Output: 4179871
 *)
 
-limit = 28123;
-abundants = Select[Range[limit], Total[Divisors[#]] > 2 # &];
+max = 28123;
+abundants = Select[Range[max], Total[Divisors[#]] > 2 # &];
 Print[
-    limit*(limit-1)/2 - Total @ DeleteDuplicates @ Select[
-        Plus @@@ Subsets[abundants, {2}],
-        # <= 28123 &
+    (max - 1) * max / 2 - Total @ DeleteDuplicates @ Select[
+        Flatten @ Table[abundants[[i]]+abundants[[j]], {i,1,Length[abundants]}, {j,i,Length[abundants]}],
+        # < max &
     ]
 ];
