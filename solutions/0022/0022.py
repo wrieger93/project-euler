@@ -12,7 +12,7 @@ def partial_name_score(name):
 
 if __name__=="__main__":
     line = None
-    with open(os.path.join(os.path.dirname(sys.argv[0]), "names.txt")) as f:
+    with open(sys.argv[1]) as f:
         line = f.readline()
 
     names = sorted([x[1:-1] for x in line.split(',')])

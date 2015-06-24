@@ -26,9 +26,9 @@ def findmax(array):
         for element in range(len(array[row])):
             array[row][element] += max(array[row+1][element],
                                        array[row+1][element+1])
-    
+
     return array[0][0]
-       
+
 
 if __name__=="__main__":
-    print(findmax(loadarray(os.path.join(os.path.dirname(sys.argv[0]), "triangle.txt"))))
+    print(findmax(loadarray(sys.argv[1])))

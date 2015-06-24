@@ -18,7 +18,7 @@ def findmax(array):
     rows = len(array)
     cols = len(array[0])
     maxprod = 0
-    
+
     # vertical
     for row in range(rows-4):
         for col in range(cols):
@@ -50,9 +50,9 @@ def findmax(array):
                    array[row+2][col-2]*array[row+3][col-3]
             if prod > maxprod:
                 maxprod = prod
-    
+
     return maxprod
 
 if __name__=="__main__":
-    array = loadarray(os.path.join(os.path.dirname(sys.argv[0]), "array.txt"))
+    array = loadarray(sys.argv[1])
     print(findmax(array))

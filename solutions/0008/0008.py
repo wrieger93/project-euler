@@ -7,7 +7,7 @@ import os
 import sys
 
 if __name__ == "__main__":
-    with open(os.path.join(os.path.dirname(sys.argv[0]), "num.txt")) as f:
+    with open(sys.argv[1]) as f:
         num = f.readline()
     max_prod = 0
     for i in range(len(num)-13):

@@ -20,19 +20,21 @@ def prime_gen():
 
     n = primes[-1] + 2
     while True:
-        is_prime = True
+        prime = True
         for p in primes:
             if p*p > n:
                 break
             if n % p == 0:
-                is_prime = False
+                prime = False
                 break
-        if is_prime:
+        if prime:
             yield n
             primes.append(n)
         n += 1
 
 def is_prime(n):
+    if n < 2:
+        return False
     gen = prime_gen()
     for p in gen:
         if p*p > n:
@@ -74,3 +76,11 @@ def divisors(n):
             prod *= pow(p, exp)
         divs.append(prod)
     return sorted(divs)
+
+def gcd(a, b):
+    if b == 0:
+        return a
+    return gcd(b, a%b)
+
+def lcm(a, b):
+    return a*b//gcd(a,b)
